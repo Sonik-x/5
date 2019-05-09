@@ -12,8 +12,8 @@ public class Loader {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        String allCommands = "Возможные команды: \"" + ADD_COM + " *текст*\", \"" + ADD_COM + " *индекс* *текст*\", \"" + LIST_COM +
-                "\", \"" + DELETE_COM + " *индекс*\", \"" + EDIT_COM + " *индекс* *новый текст*\"";
+        String allCommands = "Возможные команды: \"" + ADD_COM + "*текст*\", \"" + ADD_COM + "*индекс* *текст*\", \"" + LIST_COM +
+                "\", \"" + DELETE_COM + "*индекс*\", \"" + EDIT_COM + "*индекс* *новый текст*\"";
         System.out.println(allCommands);
 
         while (true) {
@@ -81,8 +81,8 @@ public class Loader {
                 System.out.println("Некорректный индекс.");
             }
         } else {
-            System.out.println("Некорректно введена команда. Для удаления задания введите \"" + DELETE_COM + " *индекс*\". Например: \""
-                    + DELETE_COM + " " + (int) (Math.random() * toDoList.size()) + "\"");
+            System.out.println("Некорректно введена команда. Для удаления задания введите \"" + DELETE_COM + "*индекс*\". Например: \""
+                    + DELETE_COM + (int) (Math.random() * toDoList.size()) + "\"");
         }
     }
 
@@ -101,8 +101,8 @@ public class Loader {
                 System.out.println("Некорректный индекс.");
             }
         } else {
-            System.out.println("Некорректно введена команда. Для удаления задания введите \"" + EDIT_COM + " *индекс* *новый текст*\". Например: \""
-                    + EDIT_COM + " " + (int) (Math.random() * toDoList.size()) + " составить список дел\"");
+            System.out.println("Некорректно введена команда. Для удаления задания введите \"" + EDIT_COM + "*индекс* *новый текст*\". Например: \""
+                    + EDIT_COM + (int) (Math.random() * toDoList.size()) + " составить список дел\"");
         }
 
     }
