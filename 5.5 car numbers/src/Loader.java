@@ -17,11 +17,8 @@ public class Loader {
 
         for (int i = 0; i < charList.length; i++) {
             for (int j = 0; j <= 9; j++) {
-                for (int k = 1; k <= 197; k++) {
-                    String ks = ((Integer) k).toString();
-                    while (ks.length() < 3) {
-                        ks = "0" + ks;
-                    }
+                for (int k = 1; k <= 19700; k++) {
+                    String ks = String.format("%05d", k);
 
                     StringBuilder builder = new StringBuilder();
                     builder.append(charList[i]);
@@ -79,10 +76,11 @@ public class Loader {
     }
 
     public static void setStartTime() {
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
     }
 
-    public static long duration() {
-        return System.currentTimeMillis() - startTime;
+    public static double duration() {
+        long result = System.nanoTime() - startTime;
+        return (double)result/1000000;    //millis
     }
 }

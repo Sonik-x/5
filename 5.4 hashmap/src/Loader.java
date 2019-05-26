@@ -1,10 +1,10 @@
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 
 public class Loader {
-    public static final String phoneRegex = "^([7|8])?(\\d{3})(\\d{3})(\\d{2})(\\d{2}$)";
+    public static final String PHONE_REGEX = "^([7|8])?(\\d{3})(\\d{3})(\\d{2})(\\d{2}$)";
+    public static final String PHONE_PATTERN = "+7 $2 $3-$4-$5";
 
     public static HashMap<String, String> phoneList = new HashMap<>();
 
@@ -23,8 +23,8 @@ public class Loader {
 
             if (input.equals(LIST_COM)) {
                 list();
-            } else if (input.matches(phoneRegex)) {
-                input = input.replaceFirst(phoneRegex, "+7 $2 $3-$4-$5");
+            } else if (input.matches(PHONE_REGEX)) {
+                input = input.replaceFirst(PHONE_REGEX, PHONE_PATTERN);
                 if (phoneList.containsKey(input)) {
                     printContact(input);
                 } else {
@@ -67,10 +67,10 @@ public class Loader {
         if (answerYes()) {
             System.out.println("Введите номер для нового контакта.");
             String input = scanner.nextLine();
-            if(!input.matches(phoneRegex)){
+            if(!input.matches(PHONE_REGEX)){
                 System.out.println("Некорректный номер.");
             } else {
-                input = input.replaceFirst(phoneRegex, "+7 $2 $3-$4-$5");
+                input = input.replaceFirst(PHONE_REGEX, "+7 $2 $3-$4-$5");
                 if(phoneList.containsKey(input)){
                     System.out.println("Номер уже существует.");
                     printContact(input);
